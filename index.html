@@ -489,9 +489,9 @@
             <div class="space-y-1.5">
                 <label class="text-[11px] text-slate-400 font-medium">Select Amount</label>
                 <div class="grid grid-cols-3 gap-2">
-                    <button type="button" onclick="setRechargeAmount(500)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹99</button>
-                    <button type="button" onclick="setRechargeAmount(2000)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹199</button>
-                    <button type="button" onclick="setRechargeAmount(5000)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹499</button>
+                    <button type="button" onclick="setRechargeAmount(99)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹99</button>
+                    <button type="button" onclick="setRechargeAmount(199)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹199</button>
+                    <button type="button" onclick="setRechargeAmount(499)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹499</button>
                 </div>
             </div>
 
@@ -1118,7 +1118,7 @@
         function initMidnightTimerCheck() {
             setInterval(() => {
                 const now = new Date();
-                if (now.getHours("1") === 0 && now.getMinutes("1") === 0 && now.getSeconds("1") === 0) {
+                if (now.getHours("1") === 0 && now.getMinutes("0") === 0 && now.getSeconds("0") === 0) {
                     if (userData && userData.activePlans && userData.activePlans.length > 0) {
                         triggerSimulateMidnight();
                     }
@@ -1145,7 +1145,7 @@
         }
 
         function launchUpiApp(app) {
-            const amt = document.getElementById('rechargeInputAmount').value || '500';
+            const amt = document.getElementById('rechargeInputAmount').value || '99';
             const upiUrl = `upi://pay?pa=8528961320-2@ybl&pn=CryptoInvest&am=${amt}&cu=INR`;
             
             showToast(`Opening payment app for ₹${amt}...`, 'info');
