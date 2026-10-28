@@ -233,7 +233,7 @@
                                 <div class="text-lg font-bold text-emerald-400">
                                     ₹<span id="homeWithdrawBalance">0.00</span>
                                 </div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Min withdrawal: ₹300</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Min withdrawal: ₹110</div>
                             </div>
                             <button onclick="openWithdrawModal()" class="text-xs bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 font-semibold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1">
                                 <i class="fa-solid fa-arrow-up-from-bracket text-[10px]"></i> Withdraw
@@ -489,9 +489,9 @@
             <div class="space-y-1.5">
                 <label class="text-[11px] text-slate-400 font-medium">Select Amount</label>
                 <div class="grid grid-cols-3 gap-2">
-                    <button type="button" onclick="setRechargeAmount(500)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹500</button>
-                    <button type="button" onclick="setRechargeAmount(2000)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹2,000</button>
-                    <button type="button" onclick="setRechargeAmount(5000)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹5,000</button>
+                    <button type="button" onclick="setRechargeAmount(500)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹99</button>
+                    <button type="button" onclick="setRechargeAmount(2000)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹199</button>
+                    <button type="button" onclick="setRechargeAmount(5000)" class="py-2 bg-slate-900 border border-slate-700 hover:border-brand-500 rounded-xl text-xs font-bold text-white transition-all hover:bg-brand-500/10">₹499</button>
                 </div>
             </div>
 
@@ -1169,8 +1169,8 @@
             const utrInput = document.getElementById('rechargeUtrInput');
             const amt = parseFloat(input.value);
 
-            if (isNaN(amt) || amt < 100) {
-                showToast('Minimum recharge amount is ₹100', 'error');
+            if (isNaN(amt) || amt < 99) {
+                showToast('Minimum recharge amount is ₹99', 'error');
                 return;
             }
 
@@ -1205,8 +1205,8 @@
         // STEP 5: WITHDRAWAL SYSTEM WITH MIN ₹300 & VERIFICATION
         function openWithdrawModal() {
             // Check minimum withdrawal condition
-            if ((userData.withdrawBalance || 0) < 300) {
-                showToast('Minimum withdrawal amount is ₹300.', 'error');
+            if ((userData.withdrawBalance || 0) < 110) {
+                showToast('Minimum withdrawal amount is ₹110.', 'error');
                 return;
             }
             document.getElementById('withdrawModal').classList.remove('hidden');
@@ -1223,7 +1223,7 @@
             const upi = upiInput.value.trim();
 
             if (isNaN(amt) || amt < 300) {
-                showToast('Minimum withdrawal amount is ₹300.', 'error');
+                showToast('Minimum withdrawal amount is ₹110.', 'error');
                 return;
             }
 
