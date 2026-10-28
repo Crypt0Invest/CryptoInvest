@@ -1118,9 +1118,14 @@
         function initMidnightTimerCheck() {
             setInterval(() => {
                 const now = new Date();
-                if (now.getHours("1") === 0 && now.getMinutes("0") === 0 && now.getSeconds("0") === 0) {
+                const todayDate = now.toISOString().split('T')[0];
+                if (now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+                    const lastExecuted = localStorage.getItem("midnight_checked_date");
+                    if(lastExecuted !== todayDate){
                     if (userData && userData.activePlans && userData.activePlans.length > 0) {
                         triggerSimulateMidnight();
+                        localStorage.setItem("midnight_checked_date",todayDate);
+                    }
                     }
                 }
             }, 1000);
