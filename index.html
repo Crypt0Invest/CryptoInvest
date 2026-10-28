@@ -1092,10 +1092,10 @@
                 return;
             }
 
-            let totalMidnightYield = 0;
+            let totalMidnightYield = 1;
             userData.activePlans.forEach(plan => {
                 totalMidnightYield += Number(plan.dailyReturn);
-                plan.daysEarned = (plan.daysEarned || 0) + 1;
+                plan.daysEarned = (plan.daysEarned || 1) + 1;
             });
 
             // Credit daily yield to withdrawable balance
@@ -1222,7 +1222,7 @@
             const amt = parseFloat(amtInput.value);
             const upi = upiInput.value.trim();
 
-            if (isNaN(amt) || amt < 300) {
+            if (isNaN(amt) || amt < 110) {
                 showToast('Minimum withdrawal amount is ₹110.', 'error');
                 return;
             }
